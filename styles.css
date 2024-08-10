@@ -52,6 +52,27 @@ body {
     text-overflow: ellipsis;
 }
 
+.calculator-mode {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.mode-toggle {
+    background-color: #00bfff;
+    color: #ffffff;
+    border: none;
+    height: 40px;
+    width: 100px;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.mode-toggle:hover {
+    background-color: #009acd;
+}
+
 .calculator-keys {
     display: flex;
     flex-wrap: wrap;
@@ -127,4 +148,21 @@ body {
 .calculator-keys button:active, .memory-keys button:active {
     transform: scale(0.95);
     background-color: #666666;
+}
+
+.hidden {
+    display: none;
+}
+
+.scientific-mode button {
+    height: 60px;
+    width: 70px;
+}
+
+.scientific-mode .operator {
+    background-color: #6a5acd;
+}
+
+.scientific-mode .equal-sign {
+    background-color: #00bfff;
 }

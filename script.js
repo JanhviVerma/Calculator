@@ -4,6 +4,7 @@ const calculator = {
     waitingForSecondOperand: false,
     operator: null,
     history: [],
+    memory: 0,
 };
 
 function inputDigit(digit) {
@@ -27,7 +28,7 @@ function handleOperator(nextOperator) {
     const { firstOperand, displayValue, operator } = calculator;
     const inputValue = parseFloat(displayValue);
 
-    if (operator && calculator.waitingForSecondOperand)  {
+    if (operator && calculator.waitingForSecondOperand) {
         calculator.operator = nextOperator;
         return;
     }
@@ -51,7 +52,14 @@ const performCalculation = {
     '*': (firstOperand, secondOperand) => firstOperand * secondOperand,
     '+': (firstOperand, secondOperand) => firstOperand + secondOperand,
     '-': (firstOperand, secondOperand) => firstOperand - secondOperand,
-    '=': (firstOperand, secondOperand) => secondOperand
+    '=': (firstOperand, secondOperand) => secondOperand,
+    'sqrt': (firstOperand) => Math.sqrt(firstOperand),
+    'pow': (firstOperand, secondOperand) => Math.pow(firstOperand, secondOperand),
+    'sin': (firstOperand) => Math.sin(firstOperand),
+    'cos': (firstOperand) => Math.cos(firstOperand),
+    'tan': (firstOperand) => Math.tan(firstOperand),
+    'log': (firstOperand) => Math.log10(firstOperand),
+    'exp': (firstOperand) => Math.exp(firstOperand),
 };
 
 function resetCalculator() {
@@ -68,6 +76,20 @@ function backspace() {
     calculator.displayValue = displayValue.length > 1 ? displayValue.slice(0, -1) : '0';
 }
 
+function handleMemory(operation) {
+    const value = parseFloat(calculator.displayValue);
+
+    if (operation === 'M+') {
+        calculator.memory += value;
+    } else if (operation === 'M-') {
+        calculator.memory -= value;
+    } else if (operation === 'MR') {
+        calculator.displayValue = String(calculator.memory);
+    } else if (operation === 'MC') {
+        calculator.memory = 0;
+    }
+}
+
 function updateDisplay() {
     const display = document.querySelector('.calculator-screen');
     display.value = calculator.displayValue;
@@ -76,6 +98,13 @@ function updateDisplay() {
 function updateHistory() {
     const history = document.querySelector('.calculator-history');
     history.textContent = calculator.history.join(' | ');
+}
+
+function toggleMode() {
+    document.querySelector('.basic-mode').classList.toggle('hidden');
+    document.querySelector('.scientific-mode').classList.toggle('hidden');
+    const modeButton = document.querySelector('.mode-toggle');
+    modeButton.textContent = modeButton.textContent === 'Basic' ? 'Scientific' : 'Basic';
 }
 
 updateDisplay();
@@ -106,6 +135,12 @@ keys.addEventListener('click', (event) => {
         return;
     }
 
+    if (target.classList.contains('memory')) {
+        handleMemory(target.value);
+        updateDisplay();
+        return;
+    }
+
     if (target.value === '.') {
         inputDecimal(target.value);
         updateDisplay();
@@ -115,6 +150,8 @@ keys.addEventListener('click', (event) => {
     inputDigit(target.value);
     updateDisplay();
 });
+
+document.querySelector('.mode-toggle').addEventListener('click', toggleMode);
 
 document.querySelectorAll('.calculator-keys button, .memory-keys button').forEach(button => {
     button.addEventListener('mousedown', () => {
