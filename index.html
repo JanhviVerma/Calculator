@@ -7,8 +7,9 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="calculator">
-        <input type="text" class="calculator-screen" value="" disabled />
+    <div class="calculator" role="application">
+        <input type="text" class="calculator-screen" value="" disabled aria-label="Calculator screen" />
+        <div class="calculator-history" aria-live="polite"></div>
         <div class="memory-keys">
             <button type="button" class="memory" value="M+">M+</button>
             <button type="button" class="memory" value="M-">M-</button>

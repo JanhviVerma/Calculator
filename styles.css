@@ -30,6 +30,14 @@ body {
     border-radius: 8px;
 }
 
+.calculator-history {
+    height: 30px;
+    color: #555;
+    font-size: 1rem;
+    text-align: right;
+    margin-bottom: 10px;
+}
+
 .calculator-keys {
     display: flex;
     flex-wrap: wrap;

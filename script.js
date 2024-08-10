@@ -3,6 +3,7 @@ const calculator = {
     firstOperand: null,
     waitingForSecondOperand: false,
     operator: null,
+    history: [],
 };
 
 function inputDigit(digit) {
@@ -37,6 +38,8 @@ function handleOperator(nextOperator) {
         const result = performCalculation[operator](firstOperand, inputValue);
         calculator.displayValue = String(result);
         calculator.firstOperand = result;
+        calculator.history.push(`${firstOperand} ${operator} ${inputValue} = ${result}`);
+        updateHistory();
     }
 
     calculator.waitingForSecondOperand = true;
@@ -56,6 +59,8 @@ function resetCalculator() {
     calculator.firstOperand = null;
     calculator.waitingForSecondOperand = false;
     calculator.operator = null;
+    calculator.history = [];
+    updateHistory();
 }
 
 function backspace() {
@@ -68,7 +73,13 @@ function updateDisplay() {
     display.value = calculator.displayValue;
 }
 
+function updateHistory() {
+    const history = document.querySelector('.calculator-history');
+    history.textContent = calculator.history.join(' | ');
+}
+
 updateDisplay();
+updateHistory();
 
 const keys = document.querySelector('.calculator-keys');
 keys.addEventListener('click', (event) => {
@@ -113,4 +124,42 @@ document.querySelectorAll('.calculator-keys button, .memory-keys button').forEac
     button.addEventListener('mouseup', () => {
         button.classList.remove('pressed');
     });
+});
+
+window.addEventListener('keydown', (event) => {
+    const key = event.key;
+    if (key >= '0' && key <= '9') {
+        inputDigit(key);
+        updateDisplay();
+        return;
+    }
+
+    if (key === '.') {
+        inputDecimal(key);
+        updateDisplay();
+        return;
+    }
+
+    if (key === '=' || key === 'Enter') {
+        handleOperator('=');
+        updateDisplay();
+        return;
+    }
+
+    if (key === 'Backspace') {
+        backspace();
+        updateDisplay();
+        return;
+    }
+
+    if (key === 'Escape') {
+        resetCalculator();
+        updateDisplay();
+        return;
+    }
+
+    if (['+', '-', '*', '/'].includes(key)) {
+        handleOperator(key);
+        updateDisplay();
+    }
 });
