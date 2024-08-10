@@ -166,3 +166,7 @@ body {
 .scientific-mode .equal-sign {
     background-color: #00bfff;
 }
+
+.pressed {
+    background-color: #666666 !important;
+}

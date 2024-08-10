@@ -107,6 +107,58 @@ function toggleMode() {
     modeButton.textContent = modeButton.textContent === 'Basic' ? 'Scientific' : 'Basic';
 }
 
+function handleKeyboardShortcuts(event) {
+    const key = event.key;
+    switch (key) {
+        case 's':
+            if (event.ctrlKey) {
+                handleOperator('sqrt');
+                updateDisplay();
+            }
+            break;
+        case 'p':
+            if (event.ctrlKey) {
+                handleOperator('pow');
+                updateDisplay();
+            }
+            break;
+        case 'l':
+            if (event.ctrlKey) {
+                handleOperator('log');
+                updateDisplay();
+            }
+            break;
+        case 'e':
+            if (event.ctrlKey) {
+                handleOperator('exp');
+                updateDisplay();
+            }
+            break;
+        case 'a':
+            if (event.ctrlKey) {
+                handleOperator('+');
+                updateDisplay();
+            }
+            break;
+        case 'm':
+            if (event.ctrlKey) {
+                handleOperator('-');
+                updateDisplay();
+            }
+            break;
+        case 'x':
+            if (event.ctrlKey) {
+                handleOperator('*');
+                updateDisplay();
+            }
+            break;
+        case '/':
+            handleOperator('/');
+            updateDisplay();
+            break;
+    }
+}
+
 updateDisplay();
 updateHistory();
 
@@ -164,39 +216,5 @@ document.querySelectorAll('.calculator-keys button, .memory-keys button').forEac
 });
 
 window.addEventListener('keydown', (event) => {
-    const key = event.key;
-    if (key >= '0' && key <= '9') {
-        inputDigit(key);
-        updateDisplay();
-        return;
-    }
-
-    if (key === '.') {
-        inputDecimal(key);
-        updateDisplay();
-        return;
-    }
-
-    if (key === '=' || key === 'Enter') {
-        handleOperator('=');
-        updateDisplay();
-        return;
-    }
-
-    if (key === 'Backspace') {
-        backspace();
-        updateDisplay();
-        return;
-    }
-
-    if (key === 'Escape') {
-        resetCalculator();
-        updateDisplay();
-        return;
-    }
-
-    if (['+', '-', '*', '/'].includes(key)) {
-        handleOperator(key);
-        updateDisplay();
-    }
+    handleKeyboardShortcuts(event);
 });
