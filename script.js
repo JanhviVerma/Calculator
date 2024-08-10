@@ -167,6 +167,14 @@ function handleKeyboardShortcuts(event) {
             handleOperator('/');
             updateDisplay();
             break;
+        case 'Enter':
+            handleOperator('=');
+            updateDisplay();
+            break;
+        case 'Backspace':
+            backspace();
+            updateDisplay();
+            break;
     }
 }
 
@@ -248,4 +256,3 @@ document.querySelector('.calculator').addEventListener('click', (event) => {
 });
 
 document.addEventListener('keydown', handleKeyboardShortcuts);
-

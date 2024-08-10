@@ -8,73 +8,61 @@
 </head>
 <body>
     <div class="calculator-container">
-        <div class="calculator" role="application">
-            <button type="button" class="theme-toggle" aria-label="Toggle theme">Dark</button>
-            <input type="text" class="calculator-screen" value="" disabled aria-label="Calculator screen" />
-            <div class="calculator-history" aria-live="polite"></div>
-            <button type="button" class="history-clear" aria-label="Clear history">Clear History</button>
-            <div class="calculator-mode">
-                <button type="button" class="mode-toggle" aria-label="Toggle mode">Basic</button>
-            </div>
+        <div class="calculator">
+            <div class="calculator-screen" readonly></div>
+            <div class="calculator-history"></div>
+            <button class="history-clear" value="all-clear">AC</button>
             <div class="memory-keys">
-                <button type="button" class="memory" value="M+">M+</button>
-                <button type="button" class="memory" value="M-">M-</button>
-                <button type="button" class="memory" value="MR">MR</button>
-                <button type="button" class="memory" value="MC">MC</button>
+                <button class="memory" value="MC">MC</button>
+                <button class="memory" value="MR">MR</button>
+                <button class="memory" value="M+">M+</button>
+                <button class="memory" value="M-">M-</button>
             </div>
-            <div class="calculator-keys basic-mode">
-                <button type="button" class="operator" value="+">+</button>
-                <button type="button" class="operator" value="-">-</button>
-                <button type="button" class="operator" value="*">&times;</button>
-                <button type="button" class="operator" value="/">&divide;</button>
-                <button type="button" value="7">7</button>
-                <button type="button" value="8">8</button>
-                <button type="button" value="9">9</button>
-                <button type="button" value="4">4</button>
-                <button type="button" value="5">5</button>
-                <button type="button" value="6">6</button>
-                <button type="button" value="1">1</button>
-                <button type="button" value="2">2</button>
-                <button type="button" value="3">3</button>
-                <button type="button" value="0">0</button>
-                <button type="button" value=".">.</button>
-                <button type="button" class="equal-sign operator" value="=">=</button>
-                <button type="button" class="all-clear" value="all-clear">AC</button>
-                <button type="button" class="backspace" value="backspace">←</button>
+            <div class="calculator-mode">
+                <button class="mode-toggle">Basic</button>
+                <button class="theme-toggle">Dark Mode</button>
             </div>
-            <div class="calculator-keys scientific-mode hidden">
-                <button type="button" class="operator" value="sqrt">√</button>
-                <button type="button" class="operator" value="pow">^</button>
-                <button type="button" class="operator" value="sin">sin</button>
-                <button type="button" class="operator" value="cos">cos</button>
-                <button type="button" class="operator" value="tan">tan</button>
-                <button type="button" class="operator" value="log">log</button>
-                <button type="button" class="operator" value="exp">exp</button>
-                <button type="button" class="operator" value="ln">ln</button>
-                <button type="button" class="operator" value="!">!</button>
-                <button type="button" value="7">7</button>
-                <button type="button" value="8">8</button>
-                <button type="button" value="9">9</button>
-                <button type="button" value="4">4</button>
-                <button type="button" value="5">5</button>
-                <button type="button" value="6">6</button>
-                <button type="button" value="1">1</button>
-                <button type="button" value="2">2</button>
-                <button type="button" value="3">3</button>
-                <button type="button" value="0">0</button>
-                <button type="button" value=".">.</button>
-                <button type="button" class="equal-sign operator" value="=">=</button>
-                <button type="button" class="all-clear" value="all-clear">AC</button>
-                <button type="button" class="backspace" value="backspace">←</button>
+            <div class="basic-mode">
+                <div class="calculator-keys">
+                    <button value="7">7</button>
+                    <button value="8">8</button>
+                    <button value="9">9</button>
+                    <button class="operator" value="/">/</button>
+                    <button value="4">4</button>
+                    <button value="5">5</button>
+                    <button value="6">6</button>
+                    <button class="operator" value="*">*</button>
+                    <button value="1">1</button>
+                    <button value="2">2</button>
+                    <button value="3">3</button>
+                    <button class="operator" value="-">-</button>
+                    <button value="0">0</button>
+                    <button value=".">.</button>
+                    <button class="equal-sign" value="=">=</button>
+                    <button class="operator" value="+">+</button>
+                </div>
             </div>
-            <div class="unit-converter hidden">
+            <div class="scientific-mode hidden">
+                <div class="calculator-keys">
+                    <button value="sqrt">√</button>
+                    <button value="pow">^</button>
+                    <button value="log">log</button>
+                    <button value="exp">exp</button>
+                    <button value="ln">ln</button>
+                    <button value="sin">sin</button>
+                    <button value="cos">cos</button>
+                    <button value="tan">tan</button>
+                    <button value="!" class="operator">!</button>
+                </div>
+            </div>
+            <div class="unit-converter">
                 <h3>Unit Converter</h3>
                 <select id="unit-from">
                     <option value="length">Length</option>
                     <option value="temperature">Temperature</option>
                 </select>
-                <input type="number" id="unit-input" placeholder="Value">
-                <button type="button" id="convert-button">Convert</button>
+                <input type="number" id="unit-input" placeholder="Enter value">
+                <button class="unit-converter-button">Convert</button>
                 <div id="conversion-result"></div>
             </div>
         </div>

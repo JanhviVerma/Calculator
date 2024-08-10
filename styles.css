@@ -1,3 +1,4 @@
+/* General Styles */
 body {
     font-family: 'Arial', sans-serif;
     display: flex;
@@ -89,6 +90,22 @@ body {
 
 .mode-toggle:hover {
     background-color: var(--mode-toggle-hover);
+}
+
+.theme-toggle {
+    background-color: var(--theme-toggle-background);
+    color: var(--theme-toggle-text);
+    border: none;
+    height: 40px;
+    width: 120px;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.theme-toggle:hover {
+    background-color: var(--theme-toggle-hover);
 }
 
 .calculator-keys {
@@ -191,62 +208,59 @@ body {
     --history-clear-background: #ff6f61;
     --history-clear-text: #ffffff;
     --history-clear-hover: #e55b50;
-    --mode-toggle-background: #00bfff;
+    --mode-toggle-background: #00bcd4;
     --mode-toggle-text: #ffffff;
-    --mode-toggle-hover: #009acd;
-    --button-background: #f2f2f2;
+    --mode-toggle-hover: #0097a7;
+    --theme-toggle-background: #4caf50;
+    --theme-toggle-text: #ffffff;
+    --theme-toggle-hover: #388e3c;
+    --button-background: #f5f5f5;
     --button-text: #000000;
     --button-hover-background: #e0e0e0;
-    --button-pressed-background: #d0d0d0;
-    --memory-button-background: #ffc107;
-    --memory-button-text: #000000;
+    --button-pressed-background: #c0c0c0;
     --operator-background: #ff5722;
     --operator-text: #ffffff;
     --equal-sign-background: #4caf50;
     --equal-sign-text: #ffffff;
-    --unit-converter-background: #333333;
-    --unit-converter-text: #ffffff;
-    --unit-converter-button-background: #00bfff;
+    --memory-button-background: #607d8b;
+    --memory-button-text: #ffffff;
+    --unit-converter-background: #ffffff;
+    --unit-converter-text: #000000;
+    --unit-converter-button-background: #00bcd4;
     --unit-converter-button-text: #ffffff;
-    --unit-converter-button-hover: #009acd;
+    --unit-converter-button-hover: #0097a7;
+    --dark-theme-background: #212121;
+    --dark-theme-text: #ffffff;
 }
 
-/* Dark theme */
 .dark-theme {
-    --background-color: #333333;
-    --calculator-background: #444444;
+    --background-color: #212121;
+    --calculator-background: #333333;
     --screen-background: #ffffff;
     --screen-text: #000000;
     --history-color: #ffffff;
     --history-clear-background: #ff6f61;
     --history-clear-text: #ffffff;
     --history-clear-hover: #e55b50;
-    --mode-toggle-background: #009acd;
+    --mode-toggle-background: #00bcd4;
     --mode-toggle-text: #ffffff;
-    --mode-toggle-hover: #00bfff;
-    --button-background: #666666;
+    --mode-toggle-hover: #0097a7;
+    --theme-toggle-background: #4caf50;
+    --theme-toggle-text: #ffffff;
+    --theme-toggle-hover: #388e3c;
+    --button-background: #424242;
     --button-text: #ffffff;
-    --button-hover-background: #555555;
-    --button-pressed-background: #444444;
-    --memory-button-background: #ffc107;
-    --memory-button-text: #000000;
+    --button-hover-background: #616161;
+    --button-pressed-background: #757575;
     --operator-background: #ff5722;
     --operator-text: #ffffff;
     --equal-sign-background: #4caf50;
     --equal-sign-text: #ffffff;
-    --unit-converter-background: #222222;
+    --memory-button-background: #607d8b;
+    --memory-button-text: #ffffff;
+    --unit-converter-background: #333333;
     --unit-converter-text: #ffffff;
-    --unit-converter-button-background: #00bfff;
+    --unit-converter-button-background: #00bcd4;
     --unit-converter-button-text: #ffffff;
-    --unit-converter-button-hover: #009acd;
+    --unit-converter-button-hover: #0097a7;
 }
-
-/* Smooth animations */
-.calculator-container {
-    transition: background-color 0.3s ease;
-}
-
-.calculator {
-    transition: background-color 0.3s ease;
-}
-
