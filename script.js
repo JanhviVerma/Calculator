@@ -67,7 +67,6 @@ function resetCalculator() {
     calculator.firstOperand = null;
     calculator.waitingForSecondOperand = false;
     calculator.operator = null;
-    calculator.history = [];
     updateHistory();
 }
 
@@ -159,6 +158,22 @@ function handleKeyboardShortcuts(event) {
     }
 }
 
+function convertUnits() {
+    const unitFrom = document.getElementById('unit-from').value;
+    const inputValue = parseFloat(document.getElementById('unit-input').value);
+    const resultElement = document.getElementById('conversion-result');
+    
+    let result;
+
+    if (unitFrom === 'length') {
+        result = inputValue * 100; // Example conversion: meters to centimeters
+        resultElement.textContent = `${inputValue} meters is ${result} centimeters`;
+    } else if (unitFrom === 'temperature') {
+        result = (inputValue * 9/5) + 32; // Example conversion: Celsius to Fahrenheit
+        resultElement.textContent = `${inputValue} Celsius is ${result} Fahrenheit`;
+    }
+}
+
 updateDisplay();
 updateHistory();
 
@@ -204,6 +219,13 @@ keys.addEventListener('click', (event) => {
 });
 
 document.querySelector('.mode-toggle').addEventListener('click', toggleMode);
+
+document.querySelector('.history-clear').addEventListener('click', () => {
+    calculator.history = [];
+    updateHistory();
+});
+
+document.getElementById('convert-button').addEventListener('click', convertUnits);
 
 document.querySelectorAll('.calculator-keys button, .memory-keys button').forEach(button => {
     button.addEventListener('mousedown', () => {
