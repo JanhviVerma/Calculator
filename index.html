@@ -7,33 +7,35 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="calculator" role="application">
-        <input type="text" class="calculator-screen" value="" disabled aria-label="Calculator screen" />
-        <div class="calculator-history" aria-live="polite"></div>
-        <div class="memory-keys">
-            <button type="button" class="memory" value="M+">M+</button>
-            <button type="button" class="memory" value="M-">M-</button>
-            <button type="button" class="memory" value="MR">MR</button>
-        </div>
-        <div class="calculator-keys">
-            <button type="button" class="operator" value="+">+</button>
-            <button type="button" class="operator" value="-">-</button>
-            <button type="button" class="operator" value="*">&times;</button>
-            <button type="button" class="operator" value="/">&divide;</button>
-            <button type="button" value="7">7</button>
-            <button type="button" value="8">8</button>
-            <button type="button" value="9">9</button>
-            <button type="button" value="4">4</button>
-            <button type="button" value="5">5</button>
-            <button type="button" value="6">6</button>
-            <button type="button" value="1">1</button>
-            <button type="button" value="2">2</button>
-            <button type="button" value="3">3</button>
-            <button type="button" value="0">0</button>
-            <button type="button" value=".">.</button>
-            <button type="button" class="equal-sign operator" value="=">=</button>
-            <button type="button" class="all-clear" value="all-clear">AC</button>
-            <button type="button" class="backspace" value="backspace">←</button>
+    <div class="calculator-container">
+        <div class="calculator" role="application">
+            <input type="text" class="calculator-screen" value="" disabled aria-label="Calculator screen" />
+            <div class="calculator-history" aria-live="polite"></div>
+            <div class="memory-keys">
+                <button type="button" class="memory" value="M+">M+</button>
+                <button type="button" class="memory" value="M-">M-</button>
+                <button type="button" class="memory" value="MR">MR</button>
+            </div>
+            <div class="calculator-keys">
+                <button type="button" class="operator" value="+">+</button>
+                <button type="button" class="operator" value="-">-</button>
+                <button type="button" class="operator" value="*">&times;</button>
+                <button type="button" class="operator" value="/">&divide;</button>
+                <button type="button" value="7">7</button>
+                <button type="button" value="8">8</button>
+                <button type="button" value="9">9</button>
+                <button type="button" value="4">4</button>
+                <button type="button" value="5">5</button>
+                <button type="button" value="6">6</button>
+                <button type="button" value="1">1</button>
+                <button type="button" value="2">2</button>
+                <button type="button" value="3">3</button>
+                <button type="button" value="0">0</button>
+                <button type="button" value=".">.</button>
+                <button type="button" class="equal-sign operator" value="=">=</button>
+                <button type="button" class="all-clear" value="all-clear">AC</button>
+                <button type="button" class="backspace" value="backspace">←</button>
+            </div>
         </div>
     </div>
     <script src="script.js"></script>

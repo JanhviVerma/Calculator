@@ -4,13 +4,22 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #eaeaea;
+    background: url('mountains.jpg') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+}
+
+.calculator-container {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 15px 3px rgba(0, 0, 0, 0.4);
 }
 
 .calculator {
     border-radius: 10px;
-    box-shadow: 0px 0px 15px 3px rgba(0, 0, 0, 0.1);
-    background-color: #ffffff;
+    box-shadow: 0px 0px 15px 3px rgba(255, 255, 255, 0.2);
+    background-color: #333333;
     padding: 20px;
     max-width: 350px;
     margin: 0 auto;
@@ -19,23 +28,28 @@ body {
 .calculator-screen {
     width: 100%;
     height: 50px;
-    background-color: #333333;
-    color: #ffffff;
+    background-color: #222222;
+    color: #00ff00;
     border: none;
     text-align: right;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding: 10px;
     margin-bottom: 15px;
     font-size: 2rem;
     border-radius: 8px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .calculator-history {
     height: 30px;
-    color: #555;
+    color: #cccccc;
     font-size: 1rem;
     text-align: right;
     margin-bottom: 10px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .calculator-keys {
@@ -56,60 +70,61 @@ body {
     margin: 5px;
     border-radius: 8px;
     border: none;
-    background-color: #f7f7f7;
+    background-color: #444444;
+    color: #ffffff;
     font-size: 1.5rem;
     transition: background-color 0.3s ease, transform 0.1s ease, box-shadow 0.2s ease;
 }
 
 .memory {
     width: 80px;
-    background-color: #666666;
-    color: white;
+    background-color: #888888;
+    color: #ffffff;
 }
 
 .operator {
-    background-color: #ff9500;
+    background-color: #ff4500;
     color: white;
 }
 
 .equal-sign {
     height: calc(60px * 2 + 10px);
-    background-color: #4CAF50;
+    background-color: #00cc00;
     color: white;
 }
 
 .all-clear {
-    background-color: #d9534f;
+    background-color: #cc0000;
     color: white;
 }
 
 .backspace {
-    background-color: #f0ad4e;
+    background-color: #ffcc00;
     color: white;
 }
 
 .calculator-keys button:hover, .memory-keys button:hover {
-    background-color: #e0e0e0;
-    box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.2);
+    background-color: #555555;
+    box-shadow: 0px 0px 8px 2px rgba(255, 255, 255, 0.3);
 }
 
 .operator:hover {
-    background-color: #ff8500;
+    background-color: #ff6500;
 }
 
 .equal-sign:hover {
-    background-color: #45a049;
+    background-color: #00e600;
 }
 
 .all-clear:hover {
-    background-color: #c9302c;
+    background-color: #e60000;
 }
 
 .backspace:hover {
-    background-color: #ec971f;
+    background-color: #ffdd00;
 }
 
 .calculator-keys button:active, .memory-keys button:active {
     transform: scale(0.95);
-    background-color: #cccccc;
+    background-color: #666666;
 }
