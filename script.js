@@ -114,6 +114,10 @@ function toggleMode() {
     modeButton.textContent = modeButton.textContent === 'Basic' ? 'Scientific' : 'Basic';
 }
 
+function toggleTheme() {
+    document.body.classList.toggle('dark-theme');
+}
+
 function handleKeyboardShortcuts(event) {
     const key = event.key;
     switch (key) {
@@ -174,77 +178,74 @@ function convertUnits() {
     let result;
 
     if (unitFrom === 'length') {
-        result = inputValue * 100; // Example conversion: meters to centimeters
-        resultElement.textContent = `${inputValue} meters is ${result} centimeters`;
+        result = inputValue * 0.0254; // Example conversion (inches to meters)
+        resultElement.textContent = `${inputValue} inches = ${result.toFixed(2)} meters`;
     } else if (unitFrom === 'temperature') {
-        result = (inputValue * 9/5) + 32; // Example conversion: Celsius to Fahrenheit
-        resultElement.textContent = `${inputValue} Celsius is ${result} Fahrenheit`;
+        result = (inputValue - 32) * 5 / 9; // Example conversion (Fahrenheit to Celsius)
+        resultElement.textContent = `${inputValue} °F = ${result.toFixed(2)} °C`;
     }
 }
 
-updateDisplay();
-updateHistory();
-
-const keys = document.querySelector('.calculator-keys');
-keys.addEventListener('click', (event) => {
+document.querySelector('.calculator').addEventListener('click', (event) => {
     const { target } = event;
-    if (!target.matches('button')) {
-        return;
-    }
+
+    if (!target.matches('button')) return;
+
+    const value = target.value;
 
     if (target.classList.contains('operator')) {
-        handleOperator(target.value);
+        handleOperator(value);
         updateDisplay();
         return;
     }
 
-    if (target.classList.contains('all-clear')) {
+    if (value === 'all-clear') {
         resetCalculator();
         updateDisplay();
         return;
     }
 
-    if (target.classList.contains('backspace')) {
+    if (value === 'backspace') {
         backspace();
         updateDisplay();
         return;
     }
 
     if (target.classList.contains('memory')) {
-        handleMemory(target.value);
+        handleMemory(value);
+        return;
+    }
+
+    if (value === '=') {
+        handleOperator('=');
         updateDisplay();
         return;
     }
 
-    if (target.value === '.') {
-        inputDecimal(target.value);
+    if (target.classList.contains('mode-toggle')) {
+        toggleMode();
+        return;
+    }
+
+    if (target.classList.contains('theme-toggle')) {
+        toggleTheme();
+        return;
+    }
+
+    if (target.classList.contains('unit-converter-button')) {
+        convertUnits();
+        return;
+    }
+
+    if (value === '.') {
+        inputDecimal(value);
         updateDisplay();
         return;
     }
 
-    inputDigit(target.value);
+    inputDigit(value);
     updateDisplay();
 });
 
-document.querySelector('.mode-toggle').addEventListener('click', toggleMode);
+document.addEventListener('keydown', handleKeyboardShortcuts);
 
-document.querySelector('.history-clear').addEventListener('click', () => {
-    calculator.history = [];
-    updateHistory();
-});
-
-document.getElementById('convert-button').addEventListener('click', convertUnits);
-
-document.querySelectorAll('.calculator-keys button, .memory-keys button').forEach(button => {
-    button.addEventListener('mousedown', () => {
-        button.classList.add('pressed');
-    });
-
-    button.addEventListener('mouseup', () => {
-        button.classList.remove('pressed');
-    });
-});
-
-window.addEventListener('keydown', (event) => {
-    handleKeyboardShortcuts(event);
-});
