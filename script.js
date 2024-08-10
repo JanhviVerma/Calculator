@@ -60,6 +60,14 @@ const performCalculation = {
     'tan': (firstOperand) => Math.tan(firstOperand),
     'log': (firstOperand) => Math.log10(firstOperand),
     'exp': (firstOperand) => Math.exp(firstOperand),
+    'ln': (firstOperand) => Math.log(firstOperand),
+    '!': (firstOperand) => {
+        let result = 1;
+        for (let i = 1; i <= firstOperand; i++) {
+            result *= i;
+        }
+        return result;
+    },
 };
 
 function resetCalculator() {
