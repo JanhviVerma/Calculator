@@ -93,3 +93,13 @@ keys.addEventListener('click', (event) => {
     inputDigit(target.value);
     updateDisplay();
 });
+
+document.querySelectorAll('.calculator-keys button, .memory-keys button').forEach(button => {
+    button.addEventListener('mousedown', () => {
+        button.classList.add('pressed');
+    });
+
+    button.addEventListener('mouseup', () => {
+        button.classList.remove('pressed');
+    });
+});

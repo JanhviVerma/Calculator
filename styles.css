@@ -30,7 +30,19 @@ body {
     border-radius: 5px;
 }
 
-.calculator-keys button {
+.calculator-keys {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.memory-keys {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+}
+
+.calculator-keys button, .memory-keys button {
     height: 60px;
     width: 60px;
     margin: 5px;
@@ -38,6 +50,13 @@ body {
     border: none;
     background-color: #f0f0f0;
     font-size: 1.5rem;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.memory {
+    width: 80px;
+    background-color: #666;
+    color: white;
 }
 
 .operator {
@@ -54,4 +73,25 @@ body {
 .all-clear {
     background-color: #d9534f;
     color: white;
+}
+
+.calculator-keys button:hover, .memory-keys button:hover {
+    background-color: #d4d4d4;
+}
+
+.operator:hover {
+    background-color: #ff8c00;
+}
+
+.equal-sign:hover {
+    background-color: #45a049;
+}
+
+.all-clear:hover {
+    background-color: #c9302c;
+}
+
+.calculator-keys button:active, .memory-keys button:active {
+    transform: scale(0.95);
+    background-color: #bfbfbf;
 }
