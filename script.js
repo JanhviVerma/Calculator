@@ -58,6 +58,11 @@ function resetCalculator() {
     calculator.operator = null;
 }
 
+function backspace() {
+    const { displayValue } = calculator;
+    calculator.displayValue = displayValue.length > 1 ? displayValue.slice(0, -1) : '0';
+}
+
 function updateDisplay() {
     const display = document.querySelector('.calculator-screen');
     display.value = calculator.displayValue;
@@ -80,6 +85,12 @@ keys.addEventListener('click', (event) => {
 
     if (target.classList.contains('all-clear')) {
         resetCalculator();
+        updateDisplay();
+        return;
+    }
+
+    if (target.classList.contains('backspace')) {
+        backspace();
         updateDisplay();
         return;
     }
