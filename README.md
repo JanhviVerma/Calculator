@@ -4,6 +4,8 @@
 
 This Advanced Calculator is a web-based application that provides a wide range of calculation capabilities, including basic arithmetic, scientific functions, unit conversion, and more. It features a user-friendly interface with both light and dark themes, and supports keyboard shortcuts for efficient use.
 
+**[Visit the Calculator Live!](https://janhviverma.github.io/Calculator/)**
+
 ## Features
 
 - Basic arithmetic operations (+, -, *, /)
@@ -68,7 +70,3 @@ No additional installation or setup is required as this is a client-side applica
 - `index.html` : The main HTML file
 - `style.css` : Contains all the styling for the calculator
 - `script.js` : Contains all the JavaScript functionality
-
-## Customization
-
-You can customize the calculator's appearance by modifying the CSS variables in the `:root` selector in `style.css`. This allows for easy theming and color adjustments.
